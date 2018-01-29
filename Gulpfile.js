@@ -135,11 +135,17 @@ gulp.task("build:humans.txt", function () {
     .pipe(gulp.dest(paths.dist));
 });
 
-// Copy favicons to root
+// Copy favicons
 gulp.task("build:favicons", function () {
   return gulp.src(paths.src + "/favicons/*")
     .pipe(gulp.dest(paths.tmp));
 });
+
+// Copy fonts
+gulp.task("build:fonts", function () {
+  return gulp.src(paths.src + "/fonts/*")
+    .pipe(gulp.dest(paths.tmp + "/fonts"));
+})
 
 // Revision assets
 gulp.task("build:rev", function () {
@@ -163,6 +169,7 @@ gulp.task("build", function (done) {
       [
         "build:useref",
         "build:img",
+        "build:fonts",
         // "build:docs",
         // "build:icons",
         // "build:humans.txt",
