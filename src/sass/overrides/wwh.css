@@ -1,0 +1,42 @@
+.headerimg {
+  width: 140px;
+  height: 140px;
+  margin: 7px auto 0 auto;;
+}
+
+span.logo {
+  display: inline;
+}
+span.logo > img {
+  width: 45%;
+  vertical-align: middle;
+  padding: 20px;
+}
+
+.cold {
+  color: #63679E;
+}
+
+.logocircle {
+  position: relative;
+  margin-bottom: 15px;
+  width: 9rem; height: 9rem;
+  border-radius: 50%;
+}
+
+.arc {
+  overflow: hidden;
+  position: absolute;
+  top: -1em; right: 50%; bottom: 50%; left: -1em;
+  transform-origin: 100% 100%;
+  transform: rotate(-120deg) skewX(30deg);
+}
+.arc:before {
+  box-sizing: border-box;
+  display: block;
+  border: solid 1px white;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  transform: skewX(-30deg);
+  content: '';
+}
