@@ -18,12 +18,12 @@
   $(function() {
 
     var $window = $(window),
-      $body = $('body'),
-      $wrapper = $('#wrapper'),
-      $header = $('#header'),
-      $footer = $('#footer'),
-      $main = $('#main'),
-      $main_articles = $main.children('article');
+        $body = $('body'),
+        $wrapper = $('#wrapper'),
+        $header = $('#header'),
+        $footer = $('#footer'),
+        $main = $('#main'),
+        $main_articles = $main.children('article');
 
     // Disable animations/transitions until the page has loaded.
       $body.addClass('is-loading');
@@ -61,7 +61,7 @@
 
     // Nav.
       var $nav = $header.children('nav'),
-        $nav_li = $nav.find('li');
+          $nav_li = $nav.find('li');
 
       // Add "middle" alignment classes if we're dealing with an even number of items.
         if ($nav_li.length % 2 == 0) {
@@ -73,7 +73,7 @@
 
     // Main.
       var delay = 325,
-        locked = false;
+          locked = false;
 
       // Methods.
         $main._show = function(id, initial) {
@@ -375,8 +375,8 @@
         else {
 
           var oldScrollPos = 0,
-            scrollPos = 0,
-            $htmlbody = $('html,body');
+              scrollPos = 0,
+              $htmlbody = $('html,body');
 
           $window
             .on('scroll', function() {
