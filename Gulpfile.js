@@ -130,7 +130,7 @@ gulp.task("build:icons", function () {
 
 // Copy humans.txt
 gulp.task("build:humans.txt", function () {
-  return gulp.src("humans.txt")
+  return gulp.src(paths.src + "/humans.txt")
     .pipe(plugins.updateHumanstxtDate())
     .pipe(gulp.dest(paths.dist));
 });
@@ -172,7 +172,7 @@ gulp.task("build", function (done) {
         "build:fonts",
         // "build:docs",
         // "build:icons",
-        // "build:humans.txt",
+        "build:humans.txt",
         // "build:favicons"
       ],
       "build:rev",
