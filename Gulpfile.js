@@ -14,6 +14,9 @@ var gulp        = require("gulp"),
       tmp: ".tmp"
     },
     config = {
+      autoprefixer: {
+        browsers: ["last 2 versions", "> 1%"]
+      },
       banners: {
         html: [
           "<!--",
@@ -49,9 +52,6 @@ var gulp        = require("gulp"),
           ""
         ].join("\n")
       },
-      autoprefixer: {
-        browsers: ["last 2 versions", "> 1%"]
-      },
       browserSync: {
         server: {
           baseDir: (production) ? paths.dist : paths.src
@@ -82,7 +82,8 @@ var gulp        = require("gulp"),
 
 // `useref` all the HTML files, optimizing HTML, CSS, and JS in the process
 gulp.task("build:useref", function () {
-  return gulp.src(paths.src + "/*.html")
+  return gulp
+    .src(paths.src + "/*.html")
     .pipe(plugins.useref())
     // Minify CSS, add comment banner
     .pipe(plugins.if("*.css", lazypipe()
@@ -104,7 +105,8 @@ gulp.task("build:useref", function () {
 
 // Build the SCSS (Autoprefixer, Sourcemaps)
 gulp.task("build:css", function () {
-  return gulp.src(paths.src + "/sass/*.scss")
+  return gulp
+    .src(paths.src + "/sass/*.scss")
     .pipe(plugins.plumber())
     .pipe(plugins.sourcemaps.init())
     // Have to use sass.sync (https://github.com/dlmanning/gulp-sass/issues/90)
@@ -117,20 +119,23 @@ gulp.task("build:css", function () {
 
 // Build (optimize) images
 gulp.task("build:img", function () {
-  return gulp.src(paths.src + "/img/**/*.+(jpg|jpeg|gif|png|svg)")
+  return gulp
+    .src(paths.src + "/img/**/*.+(jpg|jpeg|gif|png|svg)")
     .pipe(plugins.imagemin())
     .pipe(gulp.dest(paths.tmp + "/img"));
 });
 
 // Copy documents
 gulp.task("build:docs", function () {
-  return gulp.src(paths.src + "/docs/**")
+  return gulp
+    .src(paths.src + "/docs/**")
     .pipe(gulp.dest(paths.dist + "/docs"));
 })
 
 // Combine SVG icons
 gulp.task("build:icons", function () {
-  return gulp.src(paths.src + "/icons/**/*.svg", { base: paths.src + "/icons" })
+  return gulp
+    .src(paths.src + "/icons/**/*.svg", { base: paths.src + "/icons" })
     .pipe(plugins.rename({ prefix: "icon-" }))
     .pipe(plugins.svgstore())
     .pipe(plugins.if(production, gulp.dest(paths.tmp + "/img"), gulp.dest(paths.src + "/img")));
@@ -138,26 +143,30 @@ gulp.task("build:icons", function () {
 
 // Copy humans.txt
 gulp.task("build:humans.txt", function () {
-  return gulp.src(paths.src + "/humans.txt")
+  return gulp
+    .src(paths.src + "/humans.txt")
     .pipe(plugins.updateHumanstxtDate())
     .pipe(gulp.dest(paths.dist));
 });
 
 // Copy favicons
 gulp.task("build:favicons", function () {
-  return gulp.src(paths.src + "/favicons/*")
+  return gulp
+    .src(paths.src + "/favicons/*")
     .pipe(gulp.dest(paths.tmp));
 });
 
 // Copy fonts
 gulp.task("build:fonts", function () {
-  return gulp.src(paths.src + "/fonts/*")
+  return gulp
+    .src(paths.src + "/fonts/*")
     .pipe(gulp.dest(paths.tmp + "/fonts"));
 })
 
 // Revision assets
 gulp.task("build:rev", function () {
-  return gulp.src(paths.tmp + "/**")
+  return gulp
+    .src(paths.tmp + "/**")
     .pipe(plugins.revAll.revision({
       dontRenameFile: [
         /\.html/g,
@@ -200,10 +209,11 @@ gulp.task("build", function (done) {
 
 // Clean directories
 gulp.task("clean", function () {
-  return gulp.src([
-    paths.dist,
-    paths.tmp
-  ], { read: false })
+  return gulp
+    .src([
+      paths.dist,
+      paths.tmp
+    ], { read: false })
     .pipe(plugins.clean({ force: true }));
 });
 
@@ -211,9 +221,9 @@ gulp.task("clean", function () {
 gulp.task("serve", ["build"], function () {
   server.init(config.browserSync);
   gulp.watch(paths.src + "/sass/**/*.+(scss|css)", ["build:css"]);
-  gulp.watch(paths.src + "/js/**/*.js",     server.reload);
-  gulp.watch(paths.src + "/icons/**/*.svg", ["build:icons"]);
-  gulp.watch(paths.src + "/*.html",         server.reload);
+  gulp.watch(paths.src + "/js/**/*.js",            server.reload);
+  gulp.watch(paths.src + "/icons/**/*.svg",        ["build:icons"]);
+  gulp.watch(paths.src + "/*.html",                server.reload);
 });
 
 // Default to `serve`
