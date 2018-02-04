@@ -1,84 +1,84 @@
-var gulp = require("gulp"),
-  plugins = require("gulp-load-plugins")(),
-  server = require("browser-sync").create(),
-  lazypipe = require("lazypipe"),
-  runSequence = require("run-sequence"),
-  pkg = require("./package.json"),
-  // want the string except for the ".git" suffix
-  repository = pkg.repository.url.substring(0, pkg.repository.url.length - 4),
-  // flag for production builds (vs development)
-  production = (plugins.util.env.prod || plugins.util.env.production) ? true : false,
-  paths = {
-    src: "src",
-    dist: "build",
-    tmp: ".tmp"
-  },
-  config = {
-    banners: {
-      html: [
-        "<!--",
-        "",
-        "  __        ___       _             __        __              _           _   _            _    ",
-        "  \\ \\      / (_)_ __ | |_ ___ _ __  \\ \\      / /__  _ __   __| | ___ _ __| | | | __ _  ___| | __",
-        "   \\ \\ /\\ / /| | '_ \\| __/ _ \\ '__|  \\ \\ /\\ / / _ \\| '_ \\ / _` |/ _ \\ '__| |_| |/ _` |/ __| |/ /",
-        "    \\ V  V / | | | | | ||  __/ |      \\ V  V / (_) | | | | (_| |  __/ |  |  _  | (_| | (__|   < ",
-        "     \\_/\\_/  |_|_| |_|\\__\\___|_|       \\_/\\_/ \\___/|_| |_|\\__,_|\\___|_|  |_| |_|\\__,_|\\___|_|\\_\\",
-        "",
-        "  Spectral by HTML5 UP (html5up.net | @ajlkn)",
-        "  Licensed under CCA 3.0 (html5up.net/license)",
-        "",
-        "  Modified by Winter WonderHack",
-        "  View the source online: " + repository,
-        "",
-        "-->"
-      ].join("\n"),
-      css: [
-        "/*",
-        " * Hi there!",
-        " * This CSS has been minified and optimized.",
-        " * You can view the source code online: " + repository,
-        " */",
-        ""
-      ].join("\n"),
-      js: [
-        "/*",
-        " * Hey there!",
-        " * This JavaScript has been minified.",
-        " * You can view the source code online: " + repository,
-        " */",
-        ""
-      ].join("\n")
+var gulp        = require("gulp"),
+    plugins     = require("gulp-load-plugins")(),
+    server      = require("browser-sync").create(),
+    lazypipe    = require("lazypipe"),
+    runSequence = require("run-sequence"),
+    pkg         = require("./package.json"),
+    // want the string except for the ".git" suffix
+    repository = pkg.repository.url.substring(0, pkg.repository.url.length - 4),
+    // flag for production builds (vs development)
+    production = (plugins.util.env.prod || plugins.util.env.production) ? true : false,
+    paths = {
+      src: "src",
+      dist: "build",
+      tmp: ".tmp"
     },
-    autoprefixer: {
-      browsers: ["last 2 versions", "> 1%"]
-    },
-    browserSync: {
-      server: {
-        baseDir: (production) ? paths.dist : paths.src
+    config = {
+      banners: {
+        html: [
+          "<!--",
+          "",
+          "  __        ___       _             __        __              _           _   _            _    ",
+          "  \\ \\      / (_)_ __ | |_ ___ _ __  \\ \\      / /__  _ __   __| | ___ _ __| | | | __ _  ___| | __",
+          "   \\ \\ /\\ / /| | '_ \\| __/ _ \\ '__|  \\ \\ /\\ / / _ \\| '_ \\ / _` |/ _ \\ '__| |_| |/ _` |/ __| |/ /",
+          "    \\ V  V / | | | | | ||  __/ |      \\ V  V / (_) | | | | (_| |  __/ |  |  _  | (_| | (__|   < ",
+          "     \\_/\\_/  |_|_| |_|\\__\\___|_|       \\_/\\_/ \\___/|_| |_|\\__,_|\\___|_|  |_| |_|\\__,_|\\___|_|\\_\\",
+          "",
+          "  Spectral by HTML5 UP (html5up.net | @ajlkn)",
+          "  Licensed under CCA 3.0 (html5up.net/license)",
+          "",
+          "  Modified by Winter WonderHack",
+          "  View the source online: " + repository,
+          "",
+          "-->"
+        ].join("\n"),
+        css: [
+          "/*",
+          " * Hi there!",
+          " * This CSS has been minified and optimized.",
+          " * You can view the source code online: " + repository,
+          " */",
+          ""
+        ].join("\n"),
+        js: [
+          "/*",
+          " * Hey there!",
+          " * This JavaScript has been minified.",
+          " * You can view the source code online: " + repository,
+          " */",
+          ""
+        ].join("\n")
       },
-      notify: false,
-      // Create a tunnel (if using `--tunnel`) with a subdomain of:
-      // 1. the first "chunk" of the package.json `name`
-      // 2. a random 6-character string appended to it
-      // Note: needs to be lowercased alphanumerics
-      tunnel: plugins.util.env.tunnel ?
-        (pkg.name.trim().toLowerCase().split(/[^a-zA-Z0-9]/g)[0] + // [1]
-          Math.random().toString(36).substr(2, 6)) :                 // [2]
-        false,
-    },
-    csso: {
-      comments: false
-    },
-    htmlmin: {
-      collapseWhitespace: true,
-      minifyJS: true,
-      minifyCSS: true,
-      removeComments: true
-    },
-    sass: {
-      outputStyle: "expanded"
-    }
-  };
+      autoprefixer: {
+        browsers: ["last 2 versions", "> 1%"]
+      },
+      browserSync: {
+        server: {
+          baseDir: (production) ? paths.dist : paths.src
+        },
+        notify: false,
+        // Create a tunnel (if using `--tunnel`) with a subdomain of:
+        // 1. the first "chunk" of the package.json `name`
+        // 2. a random 6-character string appended to it
+        // Note: needs to be lowercased alphanumerics
+        tunnel: plugins.util.env.tunnel ?
+          (pkg.name.trim().toLowerCase().split(/[^a-zA-Z0-9]/g)[0] + // [1]
+            Math.random().toString(36).substr(2, 6)) :                 // [2]
+          false,
+      },
+      csso: {
+        comments: false
+      },
+      htmlmin: {
+        collapseWhitespace: true,
+        minifyJS: true,
+        minifyCSS: true,
+        removeComments: true
+      },
+      sass: {
+        outputStyle: "expanded"
+      }
+    };
 
 // `useref` all the HTML files, optimizing HTML, CSS, and JS in the process
 gulp.task("build:useref", function () {
