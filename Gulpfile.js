@@ -202,7 +202,7 @@ gulp.task("clean", function () {
 // Serve the app via `browser-sync` and watch for changes and reload
 gulp.task("serve", ["build"], function () {
   server.init(config.browserSync);
-  gulp.watch(paths.src + "/sass/**/*.scss", ["build:css"]);
+  gulp.watch(paths.src + "/sass/**/*.+(scss|css)", ["build:css"]);
   gulp.watch(paths.src + "/js/**/*.js",     server.reload);
   gulp.watch(paths.src + "/icons/**/*.svg", ["build:icons"]);
   gulp.watch(paths.src + "/*.html",         server.reload);
