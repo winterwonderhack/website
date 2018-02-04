@@ -1,6 +1,6 @@
-.headerimg {
-  width: 140px;
-  height: 140px;
+.header-logo {
+  width: 100%;
+  height: auto;
   margin: 7px auto 0 auto;;
 }
 

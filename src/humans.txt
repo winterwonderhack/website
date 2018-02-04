@@ -7,6 +7,10 @@
     Site: paulisaweso.me
     Twitter: @Pinjasaur
     Location: Michigan, US
+    
+    Hyperspace Engineer: Nat Shapiro
+    Site: ngshap.com
+    Location: Michigan, US, North America, Earth, Sol, Milky Way, Local Group, Calabi Yau
 
 # THANKS
 
