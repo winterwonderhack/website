@@ -54,7 +54,10 @@ var gulp        = require("gulp"),
       },
       browserSync: {
         server: {
-          baseDir: (production) ? paths.dist : paths.src
+          baseDir: (production) ? paths.dist : paths.src,
+          serveStaticOptions: {
+            extensions: ["html"]
+          }
         },
         notify: false,
         // Create a tunnel (if using `--tunnel`) with a subdomain of:
@@ -189,9 +192,9 @@ gulp.task("build", function (done) {
         "build:img",
         "build:fonts",
         "build:docs",
-        // "build:icons",
         "build:humans.txt",
-        // "build:favicons"
+        "build:favicons",
+        // "build:icons",
       ],
       "build:rev",
       done
