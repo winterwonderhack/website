@@ -188,7 +188,7 @@ gulp.task("build", function (done) {
         "build:useref",
         "build:img",
         "build:fonts",
-        // "build:docs",
+        "build:docs",
         // "build:icons",
         "build:humans.txt",
         // "build:favicons"
