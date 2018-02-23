@@ -123,8 +123,10 @@ gulp.task("build:css", function () {
 // Build (optimize) images
 gulp.task("build:img", function () {
   return gulp
-    .src(paths.src + "/img/**/*.+(jpg|jpeg|gif|png|svg)")
-    .pipe(plugins.imagemin())
+    .src(paths.src + "/img/**")
+    .pipe(plugins.imagemin([
+      plugins.imagemin.optipng({ optimizationLevel: 1 })
+    ]))
     .pipe(gulp.dest(paths.tmp + "/img"));
 });
 
