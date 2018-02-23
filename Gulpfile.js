@@ -178,7 +178,7 @@ gulp.task("build:rev", function () {
         /favicon.ico/g,
         /social.jpg/g,
         /\.pdf/g,
-        /\/sponsors\/.*?/g
+        // /\/sponsors\/.*?/g
       ]
     }))
     .pipe(gulp.dest(paths.dist));
