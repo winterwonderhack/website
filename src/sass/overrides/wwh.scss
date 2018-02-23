@@ -57,3 +57,19 @@ span.logo > img {
     transform: scale(1.1);
   }
 }
+
+.sponsors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  flex-wrap: wrap;
+  background-color: rgba(#fff, .35);
+  border-radius: 2px;
+
+  > img {
+    padding: 2rem;
+    width: 50%;
+    max-width: 100%;
+  }
+}
