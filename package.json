@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/winterwonderhack/website.git"
   },
-  "author": "Winter WonderHack Team <team@winterwonderhack.org>",
+  "author": "Winter WonderHack Team <team@winterwonderhack.com>",
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {

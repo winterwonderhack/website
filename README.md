@@ -1,6 +1,6 @@
 # website
 
-The winterwonderhack.org website.
+The winterwonderhack.com website.
 
 Based on [Spectral][spectral] by HTML5 UP.
 
