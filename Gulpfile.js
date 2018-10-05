@@ -154,6 +154,13 @@ gulp.task("build:humans.txt", function () {
     .pipe(gulp.dest(paths.dist));
 });
 
+// Copy particles.json
+gulp.task("build:particles.json", function () {
+  return gulp
+    .src(paths.src + "/particles.json")
+    .pipe(gulp.dest(paths.dist));
+});
+
 // Copy favicons
 gulp.task("build:favicons", function () {
   return gulp
@@ -196,6 +203,7 @@ gulp.task("build", function (done) {
         "build:fonts",
         "build:docs",
         "build:humans.txt",
+        "build:particles.json",
         "build:favicons",
         // "build:icons",
       ],
