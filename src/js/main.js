@@ -404,6 +404,9 @@
               $main._show(location.hash.substr(1), true);
             });
 
+        // Set up particles
+        particlesJS.load('particles', '/particles.json', function() {});
+
   });
 
 })(jQuery);
