@@ -3,19 +3,16 @@
 
 # TEAM
 
-    Code Monkey: Paul Esch-Laurent
+    Sr. Code Monkey: Paul Esch-Laurent
     Site: paulisaweso.me
-    Twitter: @Pinjasaur
-    Location: Michigan, US
-    
-    Hyperspace Engineer: Nat Shapiro
-    Site: ngshap.com
-    Location: Michigan, US, North America, Earth, Sol, Milky Way, Local Group, Calabi Yau
 
 # THANKS
 
+    MLH & Our Sponsors
     Stack Overflow
     Caffeine
+
+    #tenacity
 
 # SITE
 
