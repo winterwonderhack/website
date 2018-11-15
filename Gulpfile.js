@@ -161,6 +161,13 @@ gulp.task("build:particles.json", function () {
     .pipe(gulp.dest(paths.dist));
 });
 
+// Copy Netlify files
+gulp.task("build:netlify", function () {
+  return gulp
+    .src(paths.src + "/_redirects")
+    .pipe(gulp.dest(paths.dist));
+});
+
 // Copy favicons
 gulp.task("build:favicons", function () {
   return gulp
@@ -204,6 +211,7 @@ gulp.task("build", function (done) {
         "build:docs",
         "build:humans.txt",
         "build:particles.json",
+        "build:netlify",
         "build:favicons",
         // "build:icons",
       ],
