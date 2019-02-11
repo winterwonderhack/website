@@ -6,7 +6,7 @@
     Sr. Code Monkey: Paul Esch-Laurent
     Site: paulisaweso.me
 
-    Jr. Code Monkey: Caden Sumner
+    Co-Sr. Code Monkey: Caden Sumner
     Site: caden.io
 
 # THANKS
