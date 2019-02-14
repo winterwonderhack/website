@@ -7,6 +7,7 @@
 span.logo {
   display: inline;
 }
+
 span.logo > img {
   width: 45%;
   vertical-align: middle;
@@ -67,10 +68,11 @@ span.logo > img {
   flex-wrap: wrap;
   background-color: rgba(#fff, .35);
   border-radius: 2px;
+  margin-bottom: 2rem;
 
   > img {
     padding: 2rem;
     width: 50%;
-    max-width: 100%;
+    object-fit: contain;
   }
 }
