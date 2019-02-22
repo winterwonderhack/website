@@ -30,7 +30,7 @@ var gulp        = require("gulp"),
           "  Spectral by HTML5 UP (html5up.net | @ajlkn)",
           "  Licensed under CCA 3.0 (html5up.net/license)",
           "",
-          "  Modified by Winter WonderHack",
+          "  Modified by Winter Wonderhack",
           "  View the source online: " + repository,
           "",
           "-->"

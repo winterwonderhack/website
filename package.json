@@ -1,12 +1,12 @@
 {
   "name": "winterwonderhack-website",
   "version": "0.1.0",
-  "description": "Winter WonderHack's website.",
+  "description": "Winter Wonderhack's website.",
   "repository": {
     "type": "git",
     "url": "https://github.com/winterwonderhack/website.git"
   },
-  "author": "Winter WonderHack Team <team@winterwonderhack.com>",
+  "author": "Winter Wonderhack Team <team@winterwonderhack.com>",
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
